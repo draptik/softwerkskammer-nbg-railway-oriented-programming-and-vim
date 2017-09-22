@@ -1,14 +1,10 @@
-# README #
+# Railway Oriented Programming and VIM
 
-This README would normally document whatever steps are necessary to get your application up and running.
+### What is this repository for?
 
-### What is this repository for? ###
+* Introduction to Railway Oriented Programming and VIM
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
+### How do I get set up?
 
 * Summary of set up
 * Configuration
@@ -17,13 +13,7 @@ This README would normally document whatever steps are necessary to get your app
 * How to run tests
 * Deployment instructions
 
-### Contribution guidelines ###
+### Contribution guidelines
 
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+- `rop` folder contains Railway Oriented Programming slides and code samples
+- `vim` folder contains VIM slides
