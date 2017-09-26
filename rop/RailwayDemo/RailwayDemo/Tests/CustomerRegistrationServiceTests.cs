@@ -1,4 +1,6 @@
-﻿using RailwayDemo.Domain;
+﻿using NSubstitute;
+using RailwayDemo.Domain;
+using RailwayDemo.NonDomain;
 using Xunit;
 
 namespace RailwayDemo.Tests
@@ -6,10 +8,15 @@ namespace RailwayDemo.Tests
     public class CustomerRegistrationServiceTests
     {
         private readonly CustomerRegistrationService _sut;
+        private readonly ICustomerRepository _customerRepository;
+        private readonly IGateway _gateway;
 
         public CustomerRegistrationServiceTests()
         {
-            _sut = new CustomerRegistrationService();
+            _customerRepository = Substitute.For<ICustomerRepository>();
+            _gateway = Substitute.For<IGateway>();
+
+            _sut = new CustomerRegistrationService(_customerRepository, _gateway);
         }
 
         [Fact]
