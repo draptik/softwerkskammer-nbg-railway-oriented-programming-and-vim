@@ -4,29 +4,10 @@
 Patrick Drechsler
 
 <<= x =>>
-Zur Person:
-
-- "gelernter" Biologe
-- Softwareentwicker bei Redheads Ltd
-- .NET, JS
-- aktuelle Schwerpunkte: DDD, CQRS
-- Softwerkskammer
-- <i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;@drechsler
-- <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;patrick.drechsler@redheads.de
-
-Note:
-- Gelegentlich wechsle ich von Folien zur IDE
-    - Info kann sacken
-    - manche Sachen passen nicht auf Folie
-    - man sieht alles mal im echten Kontext
-    
-<!-- <span style="font-family: shlop; color: red;">Monads</span> -->
-
-<<= x =>>
 
 ## Disclaimer
 
-Ich werde nicht erkl&auml;ren, was eine Monade ist.
+Ich werde nicht erkl&auml;ren, was eine Monade ist
 
 > Wenn man verstanden hat, was eine Monade ist, verliert man die F&auml;higkeit zu erkl&auml;ren, was eine Monade ist.
 
@@ -41,6 +22,8 @@ Alle Beispiele sind in **C#**
 Umfrage:<!-- .element: class="fragment" data-fragment-index="1" -->
 - Java?<!-- .element: class="fragment" data-fragment-index="1" -->
 - C#?<!-- .element: class="fragment" data-fragment-index="1" -->
+- Javascript/Typescript?<!-- .element: class="fragment" data-fragment-index="1" -->
+- Haskell (oder Lisp, OCaml, etc)?<!-- .element: class="fragment" data-fragment-index="1" -->
 
 <<= x =>>
 
@@ -52,9 +35,9 @@ Stelle im Code, die
 - z.B. den Ablauf einer User Story beschreibt
 - oft in "Service" Klasse (z.B. RegistrationService)
 
-<<= x =>>
+<-- v -->
 
-"2 Zeilen Code"
+Einfaches Beispiel
 
 ```csharp
 var customerResult = Validate(createCustomerViewModel);
@@ -68,9 +51,8 @@ var result = customerResult
 
 <-- v -->
 
-"1 Zeile Code" 
+Realistischeres Beispiel
 
-*Realistischeres Beispiel*
 ``` csharp
 var result = Validate(createCustomerViewModel)
     .OnSuccess(c => _customerRepository.Create(c))
@@ -111,13 +93,13 @@ Wenn ein neuer Benutzer sich anmeldet,
 </code>
 </pre>
 
-- LIVE-CODING <!-- .element: class="fragment" data-fragment-index="2" -->
+<!-- .element: class="fragment" data-fragment-index="2" -->
 - Cool, wir sind fertig! <!-- .element: class="fragment" data-fragment-index="3" -->
 - let's go live... <!-- .element: class="fragment" data-fragment-index="4" -->
 
 <<= x =>>
 
-<section>
+<section data-background-image="resources/city-desaster.jpg">
     <h2 style="color:darkred">No error handling:</h2>
     <h1 style="color:darkred">What could possibly go wrong?</h1>
 </section>
@@ -140,14 +122,12 @@ return new CustomerCreatedViewModel(customer.Id) {Success = <span style="color:b
 </code>
 </pre>
 
-Note:
-ausser man ist selbst der Einzige, der die "Eingabe" bereitstellt: Dann weiss man natuerlich wie sich das System verhaelt.
+<-- v -->
 
-<<= x =>>
-
+## Just my 2 cents
 Nicht einfach drauflos programmieren: Zuerst mit Kunde/Domain-Experten kl&auml;ren!
 
-Dann die User Story aktualisieren (oder neue User Story f&uuml;r erstellen)<!-- .element: class="fragment" data-fragment-index="1" -->
+Dann die User Story aktualisieren (oder neue User Story erstellen)<!-- .element: class="fragment" data-fragment-index="1" -->
 
 <<= x =>>
 
@@ -172,8 +152,6 @@ catch (Exception e)
 </code>
 </pre>
 
-LIVE CODING<!-- .element: class="fragment" data-fragment-index="1" -->
-
 Note:
 - Code ist schwerer zu lesen/warten
 - (Trotz kompakter Darstellung)
@@ -182,8 +160,7 @@ Note:
 
 ![noborder-fixed](resources/dataflow-01.png)
 
-- Fehlerbehandlung macht einen Gro&szlig;teil des Codes aus
-- Ergebnis einer vorherigen Aktion ist Grundlage f&uuml;r weiteres Vorgehen <!-- .element: class="fragment" data-fragment-index="1" -->
+Fehlerbehandlung macht einen Gro&szlig;teil des Codes aus
 
 <<= x =>>
 
@@ -213,7 +190,7 @@ Wer m&ouml;chte heute noch auf Lambdas verzichten?
 
 <<= x =>>
 
-<section>
+<section data-background-image="resources/sheldon-cooper.jpg">
     <h3>Where are the trains?</h3>
     <h2>You promised Railways!</h2>
 </section>
@@ -226,9 +203,17 @@ Wer m&ouml;chte heute noch auf Lambdas verzichten?
 
 (...endlich die Railway Metapher...)
 
-<<= x =>>
+<-- v -->
 
-![noborder-fixed](resources/two-track.png)
+![noborder-](resources/railways-usage-1.png)
+
+<-- v -->
+
+![noborder-](resources/railways-usage-2.png)
+
+<-- v -->
+
+![noborder-](resources/railways-usage-3.png)
 
 <<= x =>>
 
@@ -244,11 +229,14 @@ Machen wir unser Bildchen "funktionaler"
 
 **F1**: wirklich wie gehabt? (1: Eingang, 2 Ausg&auml;nge)
 
-***Nein!***<!-- .element: class="fragment" data-fragment-index="1" -->
+***Nein!***
 
-Eigentlich wollen wir das Ergebnis kapseln (damit wir es sp&auml;ter verketten k&ouml;nnen)<!-- .element: class="fragment" data-fragment-index="1" -->
+Eigentlich wollen wir das Ergebnis von F1 kapseln, denn F2 erwartet
 
-![noborder-rop-why2](resources/rop-bundle-output-result.png)<!-- .element: class="fragment" data-fragment-index="1" -->
+
+<-- v -->
+
+![noborder-rop-why3](resources/rop-expect-result-return-result.png)
 
 <<= x =>>
 
@@ -260,59 +248,7 @@ Eigentlich wollen wir das Ergebnis kapseln (damit wir es sp&auml;ter verketten k
 
 Was hat es mit dieser "Result" Klasse auf sich?
 
-"Result" basiert auf "Maybe"...
-
 <-- v -->
-
-### Objektorientierung und NULL
-
-> Tony Hoare introduced Null references in ALGOL W back in 1965 "simply because it was so easy to implement", says Mr. Hoare. He talks about that decision considering it "my billion-dollar mistake".
-
-<p class="small">https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare</p>
-
-<-- v -->
-darum schreiben wir...
-```csharp
-Customer customer = repo.GetById(42);
-if (customer == null) {
-    // error handling
-    // is it NULL because 
-    // - no result was found
-    // - or for another reason?
-}
-else {
-    // happy case
-}
-```
-
-<-- v -->
-darum brauchen wir...
-```csharp
-Maybe<Customer> customer = repo.GetById(42);
-if (customer.HasValue) {
-    // happy case
-    DoSomething(customer.Value.FirstName);
-}
-else {
-    // error handling
-}
-```
-
-(zumindest ist klar, was gemeint ist)
-
-<-- v -->
-
-### C# vs Java
-
-- F&uuml;r C# spricht:
-    - Lernt oft von Java
-    - weniger Boilerplate (Properties vs getter/setter)
-    - Lambdas
-    - Pattern Matching (seit C# 7)
-
-Aber Java holt wieder auf: Java hat eine Option Klasse!
-
-<<= x =>>
 
 In C# und in Java gibt es aktuell keine "Result" Klasse
 
@@ -323,6 +259,32 @@ In C# und in Java gibt es aktuell keine "Result" Klasse
 
 <i class="fa fa-smile-o fragment" aria-hidden="true" style="font-size:2em" data-fragment-index="1"></i>
 
+
+<<= x =>>
+
+<section data-background-image="resources/documents-export-2017-10-04/20171004_230148.jpg">
+</section>
+
+<<= x =>>
+
+<section data-background-image="resources/documents-export-2017-10-04/20171004_230204.jpg">
+</section>
+
+<<= x =>>
+
+<section data-background-image="resources/documents-export-2017-10-04/20171004_230223.jpg">
+</section>
+
+<<= x =>>
+
+<section data-background-image="resources/documents-export-2017-10-04/20171004_230242.jpg">
+</section>
+
+<<= x =>>
+
+<section data-background-image="resources/documents-export-2017-10-04/20171004_230254.jpg">
+</section>
+
 <<= x =>>
 
 ### C# API
@@ -330,20 +292,6 @@ In C# und in Java gibt es aktuell keine "Result" Klasse
 NuGet: CSharpFunctionalExtensions
 
 <<= x =>>
-
-#### Result&lt;T&gt; erstellen
-
-```csharp
-Result<Customer> r1 = Result.Ok(customer);
-Result<Customer> r2 = Result.Fail<Customer>("Something failed");
-```
-
-(ja, Failure ist vom Typ String)<!-- .element: class="fragment" data-fragment-index="1" -->
-
-Note:
-- stellt sich raus, dass Failure/String fuer fast alles langt!
-
-<-- v -->
 
 Result&lt;T&gt; als R&uuml;ckgabewert
 
@@ -364,65 +312,7 @@ public Result<Customer> CreateCustomer(...)
 
 <<= x =>>
 
-### Kombination von Results
-
-(via Extension Methods)
-
-- OnSuccess
-- OnBoth
-- OnFailure
-
-<-- v -->
-
-Extension Methods in C#
-
-sind sowas wie "traits" (Scala) oder "mixins" (Ruby)
- 
-
-<<= x =>>
-API OnSuccess:
-
-```csharp
-public static Result OnSuccess(this Result result, Func<Result> func)
-
-public static Result<T> OnSuccess<T>(this Result result, Func<T> func)
-
-public static Result<K> OnSuccess<T, K>(this Result<T> result, 
-                                        Func<Result<K>> func)
-
-//...                                        
-```
-![noborder-rop-onsuccess](resources/two-track-onsuccess.png)
-
-
-<<= x =>>
-API OnBoth:
-
-```csharp
-public static T OnBoth<T>(this Result result, Func<Result, T> func)
-
-public static K OnBoth<T, K>(this Result<T> result, 
-                                  Func<Result<T>, K> func)
-```
-
-![noborder-rop-onboth](resources/two-track-onboth.png)
-
-<<= x =>>
-API OnFailure:
-
-```csharp
-public static Result OnFailure(this Result result, Action action)
-
-public static Result<T> OnFailure<T>(this Result<T> result, Action<string> action)
-
-//...                                        
-```
-
-![noborder-rop-onfailure](resources/two-track-onfailure.png)
-
-<<= x =>>
-
-LIVE CODING
+Let's try it
 
 <<= x =>>
 
@@ -440,4 +330,4 @@ LIVE CODING
 Kontaktinfos:
 
 - <i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;@drechsler
-- <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;patrick.drechsler@redheads.de
+- <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;socialcoding@pdrechsler.de
