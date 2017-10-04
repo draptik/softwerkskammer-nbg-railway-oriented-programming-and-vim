@@ -259,6 +259,9 @@ In C# und in Java gibt es aktuell keine "Result" Klasse
 
 <i class="fa fa-smile-o fragment" aria-hidden="true" style="font-size:2em" data-fragment-index="1"></i>
 
+<<= x =>>
+
+ein paar Ideen
 
 <<= x =>>
 
@@ -309,10 +312,14 @@ public Result<Customer> CreateCustomer(...)
     }
 }
 ```
-
 <<= x =>>
 
-Let's try it
+Finden wir zusammen raus, wie "Result" funktioniert
+
+**Mob-Session**
+
+**VIM**
+
 
 <<= x =>>
 
