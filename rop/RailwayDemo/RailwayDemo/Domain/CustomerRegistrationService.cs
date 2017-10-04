@@ -1,4 +1,5 @@
-﻿using RailwayDemo.NonDomain;
+﻿using RailwayDemo.Dto;
+using RailwayDemo.NonDomain;
 
 namespace RailwayDemo.Domain
 {
