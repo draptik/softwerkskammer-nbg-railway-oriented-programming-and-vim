@@ -4,16 +4,7 @@
 
 * Introduction to Railway Oriented Programming and VIM
 
-### How do I get set up?
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
 ### Contribution guidelines
 
-- `rop` folder contains Railway Oriented Programming slides and code samples
+- `rop` folder contains Railway Oriented Programming slides and code samples. Further instructions can be found in `README.md` files within subfolders.
 - `vim` folder contains VIM slides
