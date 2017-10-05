@@ -269,35 +269,6 @@ In C# und in Java gibt es aktuell keine "Result" Klasse
 
 <<= x =>>
 
-ein paar Ideen
-
-<<= x =>>
-
-<section data-background-image="resources/documents-export-2017-10-04/20171004_230148.jpg">
-</section>
-
-<<= x =>>
-
-<section data-background-image="resources/documents-export-2017-10-04/20171004_230204.jpg">
-</section>
-
-<<= x =>>
-
-<section data-background-image="resources/documents-export-2017-10-04/20171004_230223.jpg">
-</section>
-
-<<= x =>>
-
-<section data-background-image="resources/documents-export-2017-10-04/20171004_230242.jpg">
-</section>
-
-<<= x =>>
-
-<section data-background-image="resources/documents-export-2017-10-04/20171004_230254.jpg">
-</section>
-
-<<= x =>>
-
 ### C# API
 
 NuGet: CSharpFunctionalExtensions
