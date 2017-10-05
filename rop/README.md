@@ -10,3 +10,7 @@ This folder contains:
 - Vladimir Khorikov "Functional C#: Handling failures..." http://enterprisecraftsmanship.com/2015/03/20/functional-c-handling-failures-input-errors/
 - CSharpFunctionalExtensions https://github.com/vkhorikov/CSharpFunctionalExtensions
 
+### Links from our discussion
+
+- https://www.youtube.com/results?search_query=category+theory+for+programmers
+- [Brian Beckman: Don't fear the Monad](https://www.youtube.com/watch?v=ZhuHCtR3xq8&list=PLrNyI_EipITqnYTAtAPc930kfUX6-t6RJ&index=5)
