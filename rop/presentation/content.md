@@ -13,6 +13,14 @@ Ich werde nicht erkl&auml;ren, was eine Monade ist
 
 (Monaden-Paradoxon)
 
+<-- v -->
+
+3min monads fun
+
+[Scott Wlaschin](https://vimeo.com/97344498)
+
+start at: 14.30 end at: 17.30
+
 <<= x =>>
 
 Alle Beispiele sind in **C#**
