@@ -6,7 +6,7 @@ My content is located at:
 
 - `content.md`
 
-A pdf version of the slides is located at `TODO`.
+A pdf version of the slides is located at `pdf-slides/*.pdf`.
 
 My style changes are located at:
 
