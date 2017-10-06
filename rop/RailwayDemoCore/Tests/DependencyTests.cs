@@ -4,7 +4,7 @@ using FluentAssertions;
 using NSubstitute;
 using Xunit;
 
-namespace RailwayDemoCore
+namespace RailwayDemoCore.Tests
 {
     public class DependencyTests
     {
